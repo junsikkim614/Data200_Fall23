@@ -16,82 +16,6 @@ import numpy as np
 import os
 ```
 
-
-
-
-<style>
-blockquote { background: #AEDE94; }
-h1 { 
-    padding-top: 25px;
-    padding-bottom: 25px;
-    text-align: left; 
-    padding-left: 10px;
-    background-color: #DDDDDD; 
-    color: black;
-}
-h2 { 
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: left; 
-    padding-left: 5px;
-    background-color: #EEEEEE; 
-    color: black;
-}
-
-div.exercise {
-	background-color: #ffcccc;
-	border-color: #E9967A; 	
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-}
-
-div.exercise-r {
-	background-color: #fce8e8;
-	border-color: #E9967A; 	
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-}
-
-
-span.sub-q {
-	font-weight: bold;
-}
-div.theme {
-	background-color: #DDDDDD;
-	border-color: #E9967A; 	
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-	font-size: 18pt;
-}
-div.gc { 
-	background-color: #AEDE94;
-	border-color: #E9967A; 	 
-	border-left: 5px solid #800080; 
-	padding: 0.5em;
-	font-size: 12pt;
-}
-p.q1 { 
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left; 
-    padding-left: 5px;
-    background-color: #EEEEEE; 
-    color: black;
-}
-header {
-   padding-top: 35px;
-    padding-bottom: 35px;
-    text-align: left; 
-    padding-left: 10px;
-    background-color: #DDDDDD; 
-    color: black;
-}
-</style>
-
-
-
-
-
 # Tasks
 
 - Read pages 17-48 in the textbook, Bressoud and White.
@@ -116,8 +40,14 @@ When you reach the end of your rope, tie a knot in it and hang on.</code>
 
 
 ```python
-
+file = open(r"/Users/junsik/Documents/GitHub/Data200_Fall23/homework/hw1/data/quotes.txt", 'r')
+firstline = file.readline()
+print(firstline)
 ```
+
+    When you reach the end of your rope, tie a knot in it and hang on.
+    
+
 
 <div class="exercise"><b>Exercise 2</b></div> 
 
@@ -144,8 +74,33 @@ Lao Tzu</code>
 
 
 ```python
-
+file = open(r"/Users/junsik/Documents/GitHub/Data200_Fall23/homework/hw1/data/quotes.txt", 'r')
+lines = file.readlines()
+for i in range(len(lines)): 
+    print(lines[i])
+    
 ```
+
+    When you reach the end of your rope, tie a knot in it and hang on.
+    
+    Franklin D. Roosevelt
+    
+    Always remember that you are absolutely unique. Just like everyone else.
+    
+    Margaret Mead
+    
+    The best and most beautiful things in the world cannot be seen or even touched — they must be felt with the heart.
+    
+    Helen Keller
+    
+    Success depends upon previous preparation, and without such preparation, there is sure to be failure.
+    
+    Confucius
+    
+    The journey of a thousand miles begins with one step.
+    
+    Lao Tzu
+
 
 Run the cell below that defines a few `string` variables.
 
@@ -172,8 +127,15 @@ shake</code>
 
 
 ```python
-
+split1 = s1.split()
+split2 = s2.split()
+print(split1[4])
+print(split2[-1])
 ```
+
+    Applebee's
+    shake
+
 
 <div class="exercise"><b>Exercise 4</b></div> 
 
@@ -189,8 +151,16 @@ The number of words is 85</code>
 
 
 ```python
+file = open(r"/Users/junsik/Documents/GitHub/Data200_Fall23/homework/hw1/data/quotes.txt", 'r')
+content = file.read()
+content = content.split() 
+length = len(content)
+print("The number of words is" , length)
 
 ```
+
+    The number of words is 85
+
 
 <div class="exercise"><b>Exercise 5</b></div> 
 
@@ -202,8 +172,22 @@ The output from my solution is:<br>
 
 
 ```python
+file = open(r"/Users/junsik/Documents/GitHub/Data200_Fall23/homework/hw1/data/quotes.txt", 'r')
+tuples = [] 
+lines = file.readlines() 
+for i in range(len(lines)): 
+    line = lines[i]
+    split = line.split() 
+    length = len(split) 
+    tuple = (i+1, length)
+    tuples.append(tuple)
+print(tuples)
+
 
 ```
+
+    [(1, 16), (2, 3), (3, 11), (4, 2), (5, 23), (6, 2), (7, 15), (8, 1), (9, 10), (10, 2)]
+
 
 <div class="exercise"><b>Exercise 6</b></div> 
 
@@ -211,8 +195,23 @@ Write a function `numWordsPerLine(filepath)` that processes the file as in **Exe
 
 
 ```python
+def numWordsPerLine(filepath): 
+    file = open(filepath, 'r')
+    tuples = [] 
+    lines = file.readlines() 
+    for i in range(len(lines)): 
+        line = lines[i]
+        split = line.split() 
+        length = len(split) 
+        tuple = (i+1, length)
+        tuples.append(tuple)
+    print(tuples)
 
+numWordsPerLine("/Users/junsik/Documents/GitHub/Data200_Fall23/homework/hw1/data/quotes.txt")
 ```
+
+    [(1, 16), (2, 3), (3, 11), (4, 2), (5, 23), (6, 2), (7, 15), (8, 1), (9, 10), (10, 2)]
+
 
 Let's now get some practice using the `os.path.join(.)` method.  Run the following code cell
 
@@ -223,7 +222,7 @@ import os
 datadir = "data"
 ```
 
-<div class="exercise"><b>Exercise 7</b></div> 
+# <div class="exercise"><b>Exercise 7</b></div> 
 
 There is text file called `summerDay.txt` in the `data` folder.  Create a file path called `filepath` by using the `os.path.join(.)` method to join together `datadir` and the name of the file `summerDay.txt`.  Then call the function `numWordsPerLine(filepath)` you wrote in **Exercise 6** and pass in `filepath`.
 
@@ -233,8 +232,12 @@ The output from my solution is:<br>
 
 
 ```python
-
+filepath = os.path.join(datadir,'summerDay.txt')
+numWordsPerLine(filepath)
 ```
+
+    [(1, 8), (2, 7), (3, 9), (4, 9), (5, 8), (6, 7), (7, 7), (8, 7), (9, 7), (10, 8), (11, 9), (12, 8), (13, 10), (14, 10)]
+
 
 <div class="exercise"><b>Exercise 8</b></div> 
 
@@ -266,10 +269,23 @@ def readNamesCounts(filepath):
     namelist = []
     countlist = []
     ## FINISH THE FUNCTION HERE
-    
+    with open(filepath, 'r') as file: 
+        for line in file: 
+            line = line.strip() 
+            count, name = line.split(',')
+            name = name.strip()
+            count = int(count) 
+            namelist.append(name)
+            countlist.append(count)
+    return namelist, countlist
+
 
 filepath = os.path.join(datadir, "babyNames.txt")
 namelist, countlist = readNamesCounts(filepath)
 print(namelist)
 print(countlist)
 ```
+
+    ['Jacob', 'Ethan', 'Michael', 'Jayden', 'William', 'Alexander']
+    [22127, 18002, 17350, 17179, 17051, 16756]
+
