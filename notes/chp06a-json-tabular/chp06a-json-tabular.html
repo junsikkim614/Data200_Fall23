@@ -342,7 +342,7 @@ Eren Bilen
     </div>
 </div>
 
-  <p class="date">9/11/23</p>
+  <p class="date">9/19/23</p>
 </section>
 <section id="benefits-of-json" class="title-slide slide level1 center">
 <h1>Benefits of JSON</h1>
@@ -430,7 +430,7 @@ Eren Bilen
 <h1>Serialization Example</h1>
 <div class="r-stack">
 <div class="monospace">
-<p>import json <br> data = { <br> <span class="math inline">\(\hspace{1cm}\)</span>“president”: { <br> <span class="math inline">\(\hspace{2cm}\)</span>“name”: “Zaphod Beeblebrox”, <br> <span class="math inline">\(\hspace{2cm}\)</span>“species”: “Betelgeusian” <br> <span class="math inline">\(\hspace{1cm}\)</span>} <br> } <br> with open(” data_file.json “,”w”) as write_file: <br> <span class="math inline">\(\hspace{1cm}\)</span>json.dump (data, write_file ) <br> <img data-src="assets/img/hitchiker.png" class="fragment absolute" style="bottom: -30px; right: 20px; width: 400px; " data-fragment-index="2"></p>
+<p>import json <br> data = { <br> <span class="math inline">\(\hspace{1cm}\)</span>“president”: { <br> <span class="math inline">\(\hspace{2cm}\)</span>“name”: “Zaphod Beeblebrox”, <br> <span class="math inline">\(\hspace{2cm}\)</span>“species”: “Betelgeusian” <br> <span class="math inline">\(\hspace{1cm}\)</span>} <br> } <br> with open(“data_file.json”, “w”) as write_file: <br> <span class="math inline">\(\hspace{1cm}\)</span>json.dump(data, write_file) <br> <img data-src="assets/img/hitchiker.png" class="fragment absolute" style="bottom: -30px; right: 20px; width: 400px; " data-fragment-index="2"></p>
 <div class="fragment absolute" data-fragment-index="3" style="bottom: 10px; right: 200px; ">
 <iframe src="https://giphy.com/embed/hgttC8kbDWYQU" width="480" height="271" frameborder="0" class="giphy-embed" allowfullscreen="">
 </iframe>
@@ -455,7 +455,7 @@ Eren Bilen
 
 <section id="tabular-model-structure-and-formats" class="title-slide slide level1 center">
 <h1>Tabular Model: Structure and Formats</h1>
-<p>Def: A data model</p>
+<p>A data model has the following defining characteristics</p>
 <ul>
 <li>the <em>structure</em> of the data,</li>
 <li>the <em>operations</em> to obtain and update data within the model,</li>
@@ -500,7 +500,7 @@ Eren Bilen
 
 <section id="tidy-data-1" class="title-slide slide level1 center">
 <h1>Tidy Data?</h1>
-<div class="column" style="width:45%;">
+<div class="column" style="width:85%;">
 <p><img data-src="assets/img/image4.png"></p>
 </div>
 <div class="column" style="width:45%;">
@@ -527,34 +527,20 @@ Eren Bilen
 
 <img data-src="assets/img/image6.png" class="r-stretch"><ul>
 <li>Only the original table, Table 6.1, satisfies all three requirements of tidy data.</li>
+<li>Later in the semester, we will learn pivoting and melting, which are tools to make data untidy data tidy.</li>
 </ul>
 </section>
 
 <section id="format" class="title-slide slide level1 center">
 <h1>Format</h1>
-<p>Def: A format (file format or document format) is a specification of the information encoding into a sequence of characters or bytes in a file to be communicated between a creator/writer/provider and a corresponding consumer/reader/client. Examples: <code>jpg, mp3, docx, mov</code></p>
+<p>Files stored in a computer can come in different formats. Examples: <code>jpg, mp3, docx, mov</code></p>
 <ul>
-<li>The most common format for <strong>tabular data</strong> is <strong>the comma-separated value (CSV)</strong> format.</li>
+<li>The most common format for tabular data is <strong>the comma-separated value (CSV)</strong> format.</li>
 </ul>
 </section>
 
 <section id="csv-format" class="title-slide slide level1 center">
 <h1>CSV Format</h1>
-<div>
-<ul>
-<li class="fragment">CSV strikes a nice balance between being readable by humans and readable by computers.</li>
-<li class="fragment">CSV is a tabular format consisting of rows of data, each row containing multiple cells. Rows are separated by line terminators, so each row corresponds to one line.</li>
-<li class="fragment">The CSV format assumes exactly one tabular structure per separate file.
-<ul>
-<li class="fragment">This is more constrained than a spreadsheet model, in which a single file can contain multiple worksheets that could each hold its own tabular structure.</li>
-</ul></li>
-<li class="fragment">CSV is a text-based format, i.e., a CSV file is a text file.</li>
-</ul>
-</div>
-</section>
-
-<section id="typical-structure-of-csv" class="title-slide slide level1 center">
-<h1>Typical Structure of CSV</h1>
 <ul>
 <li>One header row, which gives the names of the columns.</li>
 <li>May rows of data.
@@ -572,7 +558,7 @@ Eren Bilen
 <li>Header row: <br></li>
 </ul>
 <div class="monospace">
-<p>LastName , FirstName, Initial, Course, Time</p>
+<p>LastName, FirstName, Initial, Course, Time</p>
 </div>
 <ul>
 <li>Data (subsequent rows): <br></li>
